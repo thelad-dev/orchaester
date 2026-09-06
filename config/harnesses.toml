@@ -1,0 +1,50 @@
+# Equal-rights conductors and an open pit.
+# The captain names who holds the baton this session.
+# Crew launch lines are what Herdr actually execs.
+
+[conductor]
+# Either grok or cursor may be the primary. First one found in PATH
+# that is listed here may start; captain override wins.
+equals = ["grok", "cursor"]
+grok_launch = "grok --trust"
+cursor_launch = "agent"
+
+[section.grok]
+kind = "conductor_or_crew"
+binaries = ["grok"]
+launch = "grok --trust"
+models_flag = "--model"
+notes = "xAI Grok Build. Preferred conversation + review."
+
+[section.cursor]
+kind = "conductor_or_crew"
+binaries = ["agent", "cursor-agent"]
+launch = "agent"
+notes = "Cursor Agent CLI. Preferred ship/scout intelligence."
+
+[section.claude]
+kind = "crew"
+binaries = ["claude"]
+launch = "claude"
+enabled = true
+notes = "Claude Code. Opt-in ship/review when the captain wants Anthropic."
+
+[section.codex]
+kind = "crew"
+binaries = ["codex"]
+launch = "codex"
+enabled = true
+notes = "OpenAI Codex CLI. Opt-in investigation / alt review."
+
+[section.opencode]
+kind = "crew"
+binaries = ["opencode"]
+launch = "opencode"
+enabled = false
+
+[section.pi]
+kind = "local_only"
+binaries = ["pi"]
+launch = "pi"
+enabled = true
+notes = "Local OpenAI-compatible APIs only."

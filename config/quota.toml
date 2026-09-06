@@ -1,0 +1,51 @@
+# Model + quota policy. Inspired by Kun Chen's firstmate dispatch:
+# pick harness AND model AND effort from task class + remaining budget.
+# Numbers are captain-editable ceilings, not vendor truth.
+
+[budgets]
+# soft monthly-ish units the conductor tracks in data/quota.md
+grok_units = 100
+cursor_units = 100
+claude_units = 50
+codex_units = 50
+pi_units = 9999
+local_units = 9999
+
+[bands]
+# trivial = typo, rename, one-file obvious fix
+# standard = feature slice, scout of one module
+# hard = cross-repo, novel, security, architecture
+# infinite = needs RLM (context lives outside the window)
+
+[route.trivial]
+harness = "grok"
+model = "grok-fast"
+effort = "low"
+cost = 1
+
+[route.standard]
+harness = "cursor"
+model = "grok"          # Cursor-hosted Grok when that is the captain default
+effort = "medium"
+cost = 3
+
+[route.hard]
+harness = "cursor"
+fallback = "claude"
+model = "best"
+effort = "high"
+cost = 8
+
+[route.infinite]
+harness = "rlm"
+root_model = "best"
+worker_harness = "pi"
+worker_model = "local"
+effort = "high"
+cost = 12
+notes = "Do not stuff the repo into one window. /rlm"
+
+[fallback]
+# if preferred harness is quota-exhausted or missing binary
+order = ["cursor", "grok", "claude", "codex", "pi"]
+never_promote_pi_to_ship = true

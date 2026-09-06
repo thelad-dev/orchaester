@@ -1,0 +1,10 @@
+{
+  "description": "Orchäster crewmate stop hook for Cursor Agent CLI ships.",
+  "hooks": {
+    "stop": [
+      {
+        "command": "echo ORCH_DONE_HINT report back to Orchäster with the task id"
+      }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+# Local OpenAI-compatible endpoints for Pi.
+# Orchäster will refuse a `local` spawn if no endpoint is enabled.
+# Keys stay in the environment; this file only names them.
+
+[default]
+name = "ollama-local"
+base_url = "http://127.0.0.1:11434/v1"
+model = "llama3.2"
+env_key = "LOCAL_OPENAI_API_KEY"
+enabled = true
+# Ollama accepts any string as the key. Export e.g.:
+#   export LOCAL_OPENAI_API_KEY=ollama
+
+# Example: vLLM / llama.cpp / LM Studio — copy, rename, set enabled=true
+# [vllm]
+# name = "vllm-lan"
+# base_url = "http://192.168.1.20:8000/v1"
+# model = "your-served-name"
+# env_key = "VLLM_API_KEY"
+# enabled = false

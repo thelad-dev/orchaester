@@ -1,0 +1,5 @@
+.DS_Store
+*.log
+.no-mistakes/
+knowledge/local/evidence.json
+knowledge/local/aggregated.json

@@ -1,0 +1,11 @@
+{
+  "description": "Orchäster primary turn-end reminder. Trust this project once with grok --trust or /hooks-trust.",
+  "hooks": {
+    "Stop": [
+      {
+        "type": "command",
+        "command": "echo BOSUN_TURNEND reconcile data/fleet.md"
+      }
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+# Local workspaces. These checkouts are the source of truth.
+# Remotes exist for parallel sync, not as the place work happens.
+#
+# layout:
+#   path          = human checkout (never leased to a crewmate)
+#   worktree_root = where orch-<id> worktrees land (Firstmate/treehouse style)
+#   remotes       = git remotes to fetch/push in parallel
+#   cursor        = open this workspace in Cursor so the index/rules apply
+#   multi         = sibling repos that belong to the same product surface
+
+[[workspace]]
+name = "example"
+path = "/abs/path/to/local/checkout"
+worktree_root = "/abs/path/to/local/checkout.orch"
+default_class = "ship"
+cursor = true
+remotes = ["origin"]
+# siblings = ["other-workspace-name"]
+
+# [[workspace]]
+# name = "agent-home"
+# path = "/home/ladi/src/dtry-agent-workspace"
+# worktree_root = "/home/ladi/src/dtry-agent-workspace.orch"
+# cursor = true
+# remotes = ["origin"]

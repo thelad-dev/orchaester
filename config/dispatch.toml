@@ -1,0 +1,44 @@
+# Orchäster harness dispatch
+# Edit this file, or override for one turn with /dispatch.
+# Pi is intentionally not a primary and not a ship default.
+
+[primary]
+harness = "grok"
+launch = "grok --trust"
+notes = "Captain talks only to this session. Requires hook trust once per clone."
+
+[ship]
+harness = "cursor"
+launch = "agent"
+fallback = "grok --trust"
+worktree = true
+review_required = true
+notes = "Cursor Agent CLI. If `agent` is missing, try `cursor-agent`, then fall back to Grok Build."
+
+[scout]
+harness = "cursor"
+launch = "agent"
+fallback = "grok --trust"
+worktree = true
+review_required = false
+notes = "Code intelligence on a leased worktree at workspace HEAD. Report in data/reports/. No PR."
+
+[review]
+harness = "grok"
+launch = "grok --trust"
+fallback = "cursor"
+worktree = true
+notes = "Must not reuse the author pane or harness when an alternative exists."
+
+[local]
+harness = "pi"
+launch = "pi"
+worktree = false
+endpoint_file = "config/local-openai.toml"
+notes = "ONLY local OpenAI-compatible APIs. Never cloud. Never default ship path."
+
+[herdr]
+presentation_spaces = true
+inherit_workspace = true
+focus_steal = false
+protocol_floor = 14

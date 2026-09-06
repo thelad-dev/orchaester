@@ -1,0 +1,15 @@
+name: ci
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate knowledge JSON and skill surface
+        run: bash ./scripts/validate-knowledge.sh

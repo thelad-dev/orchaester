@@ -1,0 +1,15 @@
+# local captain state
+config/work.root
+config/conductor
+data/briefs/
+data/reports/
+data/status-report-*.md
+
+# leases if someone runs setup inside this clone
+orch/
+
+# editor
+.DS_Store
+*.swp
+.idea/
+.vscode/
